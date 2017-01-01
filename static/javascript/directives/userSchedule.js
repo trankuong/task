@@ -45,6 +45,8 @@ app.directive('userSchedule', ['$http', function($http) {
 
 			function add_success(name) {
 				$scope.remove_add_activity(name);
+				// added next line later because would not update in browser use
+				//window.location = "/";
 			}
 
 			function add_fail(response) {

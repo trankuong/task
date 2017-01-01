@@ -1,12 +1,13 @@
 <div data-ng-show="!clickDelete">
-<div class="container-fluid">
-    <div data-ng-show=false> {* activity.activityid *} </div>
-    <div class="col-sm-3"> {* activity.time *} </div>
-    <div class="col-sm-2"> {* activity.activity *} </div>
-    <div class="col-sm-5"> {* activity.details *} </div>
-    <div class="col-sm-1"><button class="btn-sm btn-warning active" data-ng-click="showUpdate = true"> Edit </button></div>
-    <div class="col-sm-1"><button class="btn-sm btn-danger active" data-ng-click="clickDelete = ! clickDelete; delete_activity(activity.activityid)"> Delete </button></div>
-</div>
+
+    <div class="container-fluid">
+        <div data-ng-show=false> {* activity.activityid *} </div>
+        <div class="col-sm-3"> {* activity.time *} </div>
+        <div class="col-sm-2"> {* activity.activity *} </div>
+        <div class="col-sm-5"> {* activity.details *} </div>
+        <div class="col-sm-1"><button class="btn-sm btn-warning active" data-ng-click="showUpdate = true"> Edit </button></div>
+        <div class="col-sm-1"><button class="btn-sm btn-danger active" data-ng-click="clickDelete = ! clickDelete; delete_activity(activity.activityid)"> Delete </button></div>
+    </div>
 
     <div class="container-fluid top-buffer bottom-buffer-med" data-ng-show="showUpdate">
         <form>
@@ -17,6 +18,8 @@
             <button class="btn-sm btn-danger active" data-ng-click="remove_update_activity(); showUpdate = ! showUpdate"> Cancel </button>
         </form>
     </div>
+
     <p class="error" data-ng-show="has_error" data-ng-repeat="error in errors"> {* error *} </p>
+
 </div>
 

@@ -81,6 +81,10 @@ app.controller("ActivityController", ['$scope', '$http', function($scope, $http)
 		post_data('api/v1/logout', "" ,navigate);
 	};
 
+	$scope.update = function() {
+		refresh();
+	};
+
 	function refresh() {
 		$http.get("api/v1/activities").
 			then(function(response) {$scope.activities = response.data.result;
