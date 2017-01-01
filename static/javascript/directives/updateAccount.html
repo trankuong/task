@@ -1,0 +1,30 @@
+<div class="col-sm-6 col-sm-offset-3 edit-account-form bottom-buffer">
+<h1 class="form-head bottom-buffer">Edit Account Information</h1>
+<form id="update_user">
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="text" class="form-control" name="email" id="update_email_input" data-ng-model="email" required>
+    </div>
+    <div class="form-group">
+      <label for="first_name">First Name:</label>
+      <input type="text" class="form-control" name="firstname" id="update_firstname_input" data-ng-model="firstname" required>
+    </div>
+    <div class="form-group">
+      <label for="last_name">Last Name:</label>
+      <input type="text" class="form-control" name="lastname" id="update_lastname_input" data-ng-model="lastname" required>
+    </div>
+    <div class="form-group">
+      <label for="password1">New Password:</label>
+      <input type="password" class="form-control" name="password1" id="update_password1_input" data-ng-model="password1" required>
+    </div>
+    <div class="form-group">
+      <label for="password2">Confirm Password:</label>
+      <input type="password" class="form-control" name="password2" id="update_password2_input" data-ng-model="password2" required>
+    </div>
+
+    <p class="error" data-ng-show="has_error" data-ng-repeat="error in errors"> {* error *} </p>
+    <p class="success" data-ng-show="updated"> Information Updated </p>
+    
+    <input type="submit" value="Update" id="update_submit" data-ng-click="update()">
+</form>
+</div>

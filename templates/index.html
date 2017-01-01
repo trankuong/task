@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+{% raw %}
+<div data-ng-app="Activities" data-ng-controller="ActivityController" class="bottom-buffer">
+
+	<div class="col-sm-offset-2">
+    	<h1 class="col-sm-5 center">Activity Log:</h1>
+    	<div class="col-sm-4 top-buffer-short"> <button class="btn-lg btn-success pull-right active" data-ng-if="start_schedule()" data-ng-click="clicked_create_button()"> Start Your Schedule </button> </div>
+    </div>
+
+    <div class="col-sm-8 col-sm-offset-2 center" id="schedule">
+    	
+    	<h1 data-ng-show="start_schedule()" class="top-buffer-med bottom-buffer-med error"> No Activities in Your Schedule </h1>
+    	<div class="container-fluid top-buffer-med bottom-buffer" data-ng-show="create_clicked">
+		    <form name="form_add">
+		        <div class="col-sm-3"><input name="form-date" class="form-control" type="datetime-local" data-ng-model="create_time"></div>
+		        <div class="col-sm-2"><input name="form-name" class="form-control" type="text" placeholder="Activity Name" data-ng-model="create_name" maxlength="20"></div>
+		        <div class="col-sm-5"><input name="form-detail" class="form-control" type="text" placeholder="Activity Details" data-ng-model="create_details" maxlength="256"></div>
+		        <input type="submit" value="Create" class="btn-sm btn-success active" data-ng-click="create_schedule()">
+		        <button class="btn-sm btn-danger active" data-ng-click="remove_create_schedule()"> Cancel </button>
+		    </form>
+		</div>
+		<p data-ng-show="create_error" data-ng-repeat="error in errors" class="error"> {* error *} </p>
+
+        <div class="top-buffer=md bottom-buffer" data-ng-repeat = "(name, values) in activities">
+            <user-schedule info=name values=values refresh=update()></user-schedule> 
+        </div>
+
+    </div>
+
+</div>
+{% endraw %}
+{% endblock %}
+
+
+

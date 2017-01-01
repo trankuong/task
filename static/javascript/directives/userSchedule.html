@@ -1,0 +1,19 @@
+<div class="bottom-buffer-short"><h1> Scedule for user {* info | capitalize *}: </h1> <button class="btn-lg btn-success active" data-ng-click="showAdd = ! showAdd">Add New Activity</button></div>
+<div class="container-fluid top-buffer-med bottom-buffer" data-ng-show="showAdd">
+    <form name="form_add">
+        <div class="col-sm-3"><input name="form-date" class="form-control" type="datetime-local" data-ng-model="activity_time"></div>
+        <div class="col-sm-2"><input name="form-name" class="form-control" type="text" placeholder="Activity Name" data-ng-model="activity_name" maxlength="20"></div>
+        <div class="col-sm-5"><input name="form-detail" class="form-control" type="text" placeholder="Activity Details" data-ng-model="activity_details" maxlength="256"></div>
+        <input type="submit" value="Update" class="btn-sm btn-success active" data-ng-click="add_activity(info); refresh()">
+        <button class="btn-sm btn-danger active" data-ng-click="showAdd = ! showAdd; remove_add_activity()"> Cancel </button>
+    </form>
+</div>
+<p data-ng-show="has_error" data-ng-repeat="error in errors" class="error"> {* error *} </p>
+
+<div class="container-fluid top-buffer">
+<div class="col-sm-3"><h4 >Time</h4></div>
+<div class="col-sm-2"><h4 >Activity Name</h4></div>
+<div class="col-sm-5"><h4 >Details</h4></div>
+</div>
+
+<user-activity class="container-fluid" data-ng-repeat="value in values" username=info activity=value></user-activity>
